@@ -7,7 +7,8 @@ bool is_valid_anagram(string s, string t)
     if (s.size() != t.size())
         return false;
 
-    vector<int> freq(26, 0);
+    // vector<int> freq = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0};
+    vector<int> freq(26,0);
     int n = s.size();
 
     for (int i = 0; i < n; i++)
