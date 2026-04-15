@@ -57,8 +57,10 @@ int maxSubArray(vector<int> &nums)
             end = i;
         }
     }
-
-    return maxSum;
+    for (int i = start; i < end; i++){
+        cout << nums[i];
+    }
+        return maxSum;
 }
 
 int main()
