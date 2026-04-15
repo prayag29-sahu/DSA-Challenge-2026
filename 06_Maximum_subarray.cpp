@@ -20,49 +20,49 @@ using namespace std;
 // }
 
 // Optimized approach
-// int maxSubArray(vector<int> &nums){
-//     int currentSum = nums[0];
-//     int maxSum = nums[0];
-//     for (int i = 1; i < (int)nums.size(); i++){
-//         currentSum = max(nums[i], currentSum + nums[i]);
-//         maxSum = max(currentSum, maxSum);
-//     }
-//     return maxSum;
-// }
-
-// Print max sub array
-int maxSubArray(vector<int> &nums)
-{
+int maxSubArray(vector<int> &nums){
     int currentSum = nums[0];
     int maxSum = nums[0];
-    int start = 0, end = 0, index = 0;
-    for (int i = 1; i < (int)nums.size(); i++)
-    {
-        // currentSum = max(nums[i], currentSum + nums[i]);
-        if (nums[i] > currentSum + nums[i])
-        {
-            currentSum = nums[i];
-            index = i;
-        }
-        else
-        {
-            currentSum += nums[i];
-        }
-
-        // maxSum = max(currentSum, maxSum);
-        if (currentSum > maxSum)
-        {
-            maxSum = currentSum;
-            start = index;
-            end = i;
-        }
+    for (int i = 1; i < (int)nums.size(); i++){
+        currentSum = max(nums[i], currentSum + nums[i]);
+        maxSum = max(currentSum, maxSum);
     }
-    for (int i = start; i <= end; i++){
-        cout << nums[i] << " ";
-    }
-    cout << endl;
     return maxSum;
 }
+
+// Print max sub array
+// int maxSubArray(vector<int> &nums)
+// {
+//     int currentSum = nums[0];
+//     int maxSum = nums[0];
+//     int start = 0, end = 0, index = 0;
+//     for (int i = 1; i < (int)nums.size(); i++)
+//     {
+//         // currentSum = max(nums[i], currentSum + nums[i]);
+//         if (nums[i] > currentSum + nums[i])
+//         {
+//             currentSum = nums[i];
+//             index = i;
+//         }
+//         else
+//         {
+//             currentSum += nums[i];
+//         }
+
+//         // maxSum = max(currentSum, maxSum);
+//         if (currentSum > maxSum)
+//         {
+//             maxSum = currentSum;
+//             start = index;
+//             end = i;
+//         }
+//     }
+//     for (int i = start; i <= end; i++){
+//         cout << nums[i] << " ";
+//     }
+//     cout << endl;
+//     return maxSum;
+// }
 
 int main()
 {
