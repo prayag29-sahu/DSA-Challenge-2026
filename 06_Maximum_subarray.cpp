@@ -52,15 +52,16 @@ int maxSubArray(vector<int> &nums)
         // maxSum = max(currentSum, maxSum);
         if (currentSum > maxSum)
         {
-            currentSum = maxSum;
+            maxSum = currentSum;
             start = index;
             end = i;
         }
     }
-    for (int i = start; i < end; i++){
-        cout << nums[i];
+    for (int i = start; i <= end; i++){
+        cout << nums[i] << " ";
     }
-        return maxSum;
+    cout << endl;
+    return maxSum;
 }
 
 int main()
