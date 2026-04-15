@@ -20,7 +20,7 @@ using namespace std;
 // }
 
 // Optimized approach
-int maxSubArray(vector<int> &nums){
+int maxSubArray(vector<int>& nums){
     int currentSum = nums[0];
     int maxSum = nums[0];
     for (int i = 1; i < (int)nums.size(); i++){
