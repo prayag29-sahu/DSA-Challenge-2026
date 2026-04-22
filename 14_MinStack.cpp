@@ -36,47 +36,82 @@ using namespace std;
 //     }
 // };
 
-// 2 stack
+// // 2 stack
+// class MinStack
+// {
+// private:
+//     stack<int> st;
+
+//     stack<int> minst;
+
+// public:
+//     MinStack()
+//     {
+//     }
+
+//     void push(int val)
+//     {
+//         st.push(val);
+
+//         if(minst.empty()|| val<minst.top()){
+//             minst.push(val);
+//         }
+//     }
+
+//     void pop()
+//     {
+//         if(st.top()==minst.top()){
+//             minst.pop();
+//         }
+//         st.pop();
+//     }
+
+//     int top()
+//     {
+//         return st.top();
+//     }
+
+//     int getMin()
+//     {
+//         return minst.top();
+//     }
+// };
+
+// Using auxiliary stack
 class MinStack
 {
-private:
-    stack<int> st;
-
-    stack<int> minst;
-
 public:
+    stack<pair<int, int>> st;
     MinStack()
     {
     }
 
     void push(int val)
     {
-        st.push(val);
-
-        if(minst.empty()|| val<minst.top()){
-            minst.push(val);
+        int mn = val;
+        if (!st.empty())
+        {
+            mn = min(val, st.top().second);
         }
+
+        st.push({val, mn});
     }
 
     void pop()
     {
-        if(st.top()==minst.top()){
-            minst.pop();
-        }
         st.pop();
     }
 
     int top()
     {
-        return st.top();
+        return st.top().first;
     }
 
     int getMin()
     {
-        return minst.top();
+        return st.top().second;
     }
 };
-
 
 int main(){
     MinStack minStack;
