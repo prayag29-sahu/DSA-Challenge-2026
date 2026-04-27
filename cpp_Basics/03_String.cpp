@@ -33,6 +33,13 @@ public:
         // Return the modified string
         return newStr;
     }
+
+    // Function to compare two strings
+    bool compareStrings(string str1, string str2)
+    {
+        // Return true if strings are equal
+        return str1 == str2;
+    }
 };
 
 // Driver code
@@ -53,6 +60,20 @@ int main()
     // Print both strings
     cout << "Original String: " << str << endl;
     cout << "Modified String: " << modified << endl;
+
+    // Input first string
+    string str1;
+    cin >> str1;
+
+    // Input second string
+    string str2;
+    cin >> str2;
+
+    // Compare strings and print result
+    if (obj.compareStrings(str1, str2))
+        cout << "Strings are equal";
+    else
+        cout << "Strings are not equal";
 
     return 0;
 }
