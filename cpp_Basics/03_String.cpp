@@ -45,12 +45,13 @@ int main()
     // Call function and print result
     cout << obj.findLength(s) << endl;
     obj.accessCharacters(s);
-
+    cout << endl;
+    string str = "hello";
     // Call modifyString and store the result
-    string modified = obj.modifyString(s);
+    string modified = obj.modifyString(str);
 
     // Print both strings
-    cout << "Original String: " << s << endl;
+    cout << "Original String: " << str << endl;
     cout << "Modified String: " << modified << endl;
 
     return 0;
