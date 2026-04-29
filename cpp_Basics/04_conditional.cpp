@@ -78,8 +78,8 @@ public:
 
 int main()
 {
-    // int x = 0;
-    // int y = 4;
+    int x = 10;
+    int y = 10;
     // if(y)
     //     cout << y;
     // if(x)
@@ -92,6 +92,8 @@ int main()
     char result = obj.studentGrade(marks);
     cout << "\n";
     obj.SwitchStudentGrade(result);
+    cout << "\n";
+    obj.SwitchEvaluation(x, y);
 
     return 0;
 }
