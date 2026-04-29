@@ -51,9 +51,11 @@ public:
         case 'D':
             cout << "above the 30 marks";
             break;
-        case 'E':
+        case 'F':
             cout << "Fail";
             break;
+        default :
+            cout << "enter vaid marks. ";
         }
     }
 };
