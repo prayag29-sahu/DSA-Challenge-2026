@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 /*
@@ -34,34 +34,51 @@ public:
         }
         return sum;
     }
+
+    int factorial(int num)
+    {
+        int factorial = 1;
+
+        while (num > 0)
+        {
+            factorial *= num;
+            num--;
+        }
+
+        cout << "Factorial is: " << factorial << endl;
+    }
 };
 
-int main(){
+int main()
+{
 
     // for loop
-    for (int i = 0; i < 5; ++i){
+    for (int i = 0; i < 5; ++i)
+    {
         cout << i << "\t";
     }
     cout << "\n";
 
     // while loop
-    int i=0;
+    int i = 0;
     // while(i<10){
     //     cout << i << "\t";
     //     ++i;
     // }
 
     // do while loop
-    do{
+    do
+    {
         cout << i << "\t";
         ++i;
     } while (i < 5);
 
     cout << "\n";
 
-    // for each 
+    // for each
     vector<int> arr = {1, 2, 3, 4, 5, 6};
-    for(int x:arr){
+    for (int x : arr)
+    {
         cout << x << "\t";
     }
 
@@ -75,9 +92,15 @@ int main(){
         }
     }
 
+    // create object of class solution
     Solution s;
 
-    cout<< "\nsum is : " << s.forLoop(1, 5);
+    // for loop application
+    cout << "\nsum is : " << s.forLoop(1, 5);
+
+    // while loop application
+    cout << "\n";
+    s.factorial(5);
+
     return 0;
 }
-
