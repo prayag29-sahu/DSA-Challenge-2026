@@ -7,4 +7,11 @@ int main(){
     for (int i = 0; i < 5; ++i){
         cout << i << "\n";
     }
+
+    // while loop
+    int i;
+    while(i<10){
+        cout << i << "\t";
+        ++i;
+    }
 }
