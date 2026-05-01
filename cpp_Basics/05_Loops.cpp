@@ -47,6 +47,37 @@ public:
 
         cout << "Factorial is: " << factorial << endl;
     }
+
+    /*
+    Given a digit d (0 to 9), find the sum of the first 50 positive integers (integers > 0) that end with digit d.
+
+A number ends with digit d if its last digit is d.
+
+Example 1
+
+Input: d = 1
+
+Output: 12300
+
+Explanation:
+
+The first 50 positive integers ending with 1 are: 1, 11, 21, 31, ..., 491
+
+Their sum is 12300.
+    */
+    int whileLoop(int d)
+    {
+        int val = d;
+        int sum = d;
+        int i = 0;
+        while (i < 49)
+        {
+            val += 10;
+            sum += val;
+            i++;
+        }
+        return sum;
+    }
 };
 
 int main()
@@ -101,6 +132,10 @@ int main()
     // while loop application
     cout << "\n";
     s.factorial(5);
+
+    // end digit val sum 
+    cout << "\n"
+         << s.whileLoop(1);
 
     return 0;
 }
