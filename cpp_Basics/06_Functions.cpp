@@ -39,6 +39,13 @@ void frequencyCount(vector<int> &arr, unordered_map<int, int> &map)
     }
 }
 
+// swap 2 elements using refrences 
+void swapElements(int &a, int &b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
 int main()
 {
     int x = 5;
@@ -65,4 +72,10 @@ int main()
     {
         cout << "\n" << it.first << " -> " << it.second;
     }
+
+    // swap 2 elements using refrences
+    int a = 10, b = 20;
+    cout << "\nBefore Swap a = "<< a << " b = " << b;
+    swapElements(a, b);
+    cout << "\nAfter Swap a = " << a << " b = " << b;
 }
