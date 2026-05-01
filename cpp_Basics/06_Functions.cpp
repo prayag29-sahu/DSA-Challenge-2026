@@ -1,5 +1,6 @@
 #include <iostream>
-#include<vector>
+#include <vector>
+#include <unordered_map>
 using namespace std;
 
 // pass by value
@@ -14,11 +15,13 @@ void passByReference(int &a)
     a += 5;
 }
 
-// print reverse of array using pass by refrence 
-void arrayReverse(vector<int> &arr){
+// print reverse of array using pass by refrence
+void arrayReverse(vector<int> &arr)
+{
     int left = 0;
     int right = arr.size() - 1;
-    while(left<right){
+    while (left < right)
+    {
         // int temp = arr[left];
         // arr[left] = arr[right];
         // arr[right] = temp;
@@ -26,7 +29,15 @@ void arrayReverse(vector<int> &arr){
         ++left;
         --right;
     }
-} 
+}
+
+// count frequency of array elements
+void frequencyCount(vector<int> &arr, unordered_map<int, int> &map)
+{
+    for(int x:arr){
+        map[x]++;
+    }
+}
 
 int main()
 {
@@ -40,9 +51,18 @@ int main()
     cout << x << "\n";
 
     // print reverse of array using pass by refrence
-    vector<int> arr = {1, 2, 3, 4, 5};
+    vector<int> arr = {1, 2, 3, 4, 2, 3, 4, 6, 3, 5};
     arrayReverse(arr);
-    for(int x:arr){
+    for (int x : arr)
+    {
         cout << x << "\t";
+    }
+
+    // count frequency of array elements
+    unordered_map<int, int> map;
+    frequencyCount(arr, map);
+    for (auto it : map)
+    {
+        cout << "\n" << it.first << " -> " << it.second;
     }
 }
