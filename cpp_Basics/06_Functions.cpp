@@ -46,25 +46,58 @@ void swapElements(int &a, int &b){
     b = temp;
 }
 
+/*
+Pass by Ref
+Subscribe to TUF+
 
+Hints
+Company
+Given an array arr of n elements. The task is to reverse the given array. The reversal of array should be inplace.
+
+
+Example 1
+
+Input: n=5, arr = [1,2,3,4,5]
+
+Output: [5,4,3,2,1]
+
+Explanation: The reverse of the array [1,2,3,4,5] is [5,4,3,2,1]
+*/
+
+class Solution
+{
+public:
+    void reverse(vector<int> &arr)
+    {
+        int left = 0, right = arr.size() - 1;
+        while (left < right)
+        {
+            swap(arr[left], arr[right]);
+            ++left;
+            --right;
+        }
+    }
+};
 
 int main()
 {
     int x = 5;
     // pass by value
     passByValue(x);
-    cout << x << "\n";
+    cout  << "By Pass By Value : " << x << "\n";
 
     // Pass by reference
     passByReference(x);
-    cout << x << "\n";
+    cout << "By Pass by Refrenece : " << x << "\n";
 
     // print reverse of array using pass by refrence
-    vector<int> arr = {1, 2, 3, 4, 2, 3, 4, 6, 3, 5};
+    vector<int>
+        arr = {1, 2, 3, 4, 2, 3, 4, 6, 3, 5};
+    cout << "Reverse the array : ";
     arrayReverse(arr);
     for (int x : arr)
     {
-        cout << x << "\t";
+        cout << x << " ";
     }
 
     // count frequency of array elements
@@ -80,4 +113,12 @@ int main()
     cout << "\nBefore Swap a = "<< a << " b = " << b;
     swapElements(a, b);
     cout << "\nAfter Swap a = " << a << " b = " << b;
+
+    cout << "\n";
+    // reverse by ref
+    Solution s;
+    s.reverse(arr);
+    cout << "Reverse the array : ";
+    for(int x:arr)
+        cout << x << " ";
 }
