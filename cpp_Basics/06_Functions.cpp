@@ -34,13 +34,15 @@ void arrayReverse(vector<int> &arr)
 // count frequency of array elements
 void frequencyCount(vector<int> &arr, unordered_map<int, int> &map)
 {
-    for(int x:arr){
+    for (int x : arr)
+    {
         map[x]++;
     }
 }
 
-// swap 2 elements using refrences 
-void swapElements(int &a, int &b){
+// swap 2 elements using refrences
+void swapElements(int &a, int &b)
+{
     int temp = a;
     a = b;
     b = temp;
@@ -84,7 +86,7 @@ int main()
     int x = 5;
     // pass by value
     passByValue(x);
-    cout  << "By Pass By Value : " << x << "\n";
+    cout << "By Pass By Value : " << x << "\n";
 
     // Pass by reference
     passByReference(x);
@@ -110,7 +112,7 @@ int main()
 
     // swap 2 elements using refrences
     int a = 10, b = 20;
-    cout << "\nBefore Swap a = "<< a << " b = " << b;
+    cout << "\nBefore Swap a = " << a << " b = " << b;
     swapElements(a, b);
     cout << "\nAfter Swap a = " << a << " b = " << b;
 
@@ -119,6 +121,6 @@ int main()
     Solution s;
     s.reverse(arr);
     cout << "Reverse the array : ";
-    for(int x:arr)
+    for (int x : arr)
         cout << x << " ";
 }
