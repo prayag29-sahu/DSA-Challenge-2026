@@ -106,7 +106,6 @@ public:
             cout << "\n";
         }
     }
-
     void printPattern(int n)
     {
         int size = 2 * n - 1;
