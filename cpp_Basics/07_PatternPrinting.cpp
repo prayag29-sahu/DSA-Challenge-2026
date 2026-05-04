@@ -83,6 +83,17 @@ public:
             cout << endl;
         }
     }
+    void numberTriangle(int n)
+    {
+        for (int i = 1; i <= n; ++i)
+        {
+            for (int j = 1; j <= i; ++j)
+            {
+                cout << j;
+            }
+            cout << "\n";
+        }
+    }
 };
 
 int main()
@@ -98,5 +109,7 @@ int main()
     p.rightLowerTriangle(4);
     cout << "Right Upper Traingle :" << endl;
     p.rightUpperTriangle(4);
+    cout << "Left Lower Number Traingle :" << endl;
+    p.numberTriangle(4);
     return 0;
 }
