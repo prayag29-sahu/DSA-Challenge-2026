@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include<algorithm>
 using namespace std;
 
 class pattern
@@ -105,6 +106,23 @@ public:
             cout << "\n";
         }
     }
+
+    void printPattern(int n)
+    {
+        int size = 2 * n - 1;
+
+        for (int i = 0; i < size;++i){
+            for (int j = 0; j < size;j++){
+                int top = i;
+                int left = j;
+                int bottom = size - i - 1;
+                int right = size - j - 1;
+                int dist = min(min(top, left), min(right, bottom));
+                cout << n - dist<<" ";
+            }
+            cout << "\n";
+        }
+    }
 };
 
 int main()
@@ -124,5 +142,7 @@ int main()
     p.numberTriangle(4);
     cout << "Left Lower Number Traingle 2 :" << endl;
     p.numberTriangle2(4);
+    cout << "Matrix Number Pattern :" << endl;
+    p.printPattern(5);
     return 0;
 }
