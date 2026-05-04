@@ -31,6 +31,22 @@ public:
         }
         return reverse;
     }
+
+    // Palindrom check
+    bool isPalindrome(int n)
+    {
+        int palind = 0;
+        int temp = n;
+        while (temp > 0)
+        {
+            palind = (palind * 10) + temp % 10;
+            temp /= 10;
+        }
+        if (n == palind)
+            return true;
+        else
+            return false;
+    }
 };
 
 int main()
@@ -40,4 +56,5 @@ int main()
     // count digits in number
     cout << "Total number of digits in " << num << " is : " << m.countDigits(num) << "\n";
     cout << "The reverse of Number " << num << " is : " << m.reverseNumber(num) << "\n";
+    cout << "Check the palindrom for " << num << " is : " << m.isPalindrome(12321) << "\n";
 }
