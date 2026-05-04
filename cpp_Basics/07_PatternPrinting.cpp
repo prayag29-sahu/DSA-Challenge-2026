@@ -110,14 +110,16 @@ public:
     {
         int size = 2 * n - 1;
 
-        for (int i = 0; i < size;++i){
-            for (int j = 0; j < size;j++){
+        for (int i = 0; i < size; ++i)
+        {
+            for (int j = 0; j < size; j++)
+            {
                 int top = i;
                 int left = j;
                 int bottom = size - i - 1;
                 int right = size - j - 1;
                 int dist = min(min(top, left), min(right, bottom));
-                cout << n - dist<<" ";
+                cout << n - dist << " ";
             }
             cout << "\n";
         }
@@ -138,7 +140,44 @@ public:
             cout << "\n";
         }
     }
+    void butterFly(int n)
+    {
+        if (n == 1)
+        {
+            cout << "*";
+            return;
+        }
 
+        // Top half
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < i + 1; j++)
+                cout << "*";
+
+            for (int j = 0; j < 2 * (n - i - 1); j++)
+                cout << " ";
+
+            for (int j = 0; j < i + 1; j++)
+                cout << "*";
+
+            cout << "\n";
+        }
+
+        // Bottom half
+        for (int i = n - 2; i >= 0; i--)
+        {
+            for (int j = 0; j < i + 1; j++)
+                cout << "*";
+
+            for (int j = 0; j < 2 * (n - i - 1); j++)
+                cout << " ";
+
+            for (int j = 0; j < i + 1; j++)
+                cout << "*";
+
+            cout << "\n";
+        }
+    }
 };
 
 int main()
@@ -162,5 +201,7 @@ int main()
     p.printPattern(5);
     cout << "Hollow square Pattern :" << endl;
     p.hollowSquare(5);
+    cout << "Butterfly Pattern :" << endl;
+    p.butterFly(5);
     return 0;
 }
