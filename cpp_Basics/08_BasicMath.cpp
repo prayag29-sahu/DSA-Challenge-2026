@@ -47,14 +47,31 @@ public:
         else
             return false;
     }
+
+    // GCD calculation
+    int GCD(int n1, int n2)
+    {
+        int min = n1 < n2 ? n1 : n2;
+        int gcd = 1;
+        for (int i = 2; i < min; ++i)
+        {
+            if ((n1 % i == 0) && (n2 % i == 0))
+            {
+                gcd = i;
+            }
+        }
+        return gcd;
+    }
 };
 
 int main()
 {
     mathematics m;
     int num = 123;
+    int n1 = 15, n2 = 18;
     // count digits in number
     cout << "Total number of digits in " << num << " is : " << m.countDigits(num) << "\n";
     cout << "The reverse of Number " << num << " is : " << m.reverseNumber(num) << "\n";
     cout << "Check the palindrom for " << num << " is : " << m.isPalindrome(12321) << "\n";
+    cout << "GCD of  " << n1 << " and " << n2 << " is : " << m.GCD(n1, n2) << "\n";
 }
