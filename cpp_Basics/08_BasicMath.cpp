@@ -107,20 +107,36 @@ public:
         return false;
     }
 
+    // Divisor printing
     vector<int> divisors(int n) // 6
     {
         vector<int> ans;
-        for (int i = 1; i*i < n + 1; ++i) // i=1 , 2 
+        for (int i = 1; i * i < n + 1; ++i) // i=1 , 2
         {
             if (n % i == 0)
             {
-                ans.push_back(i); // 1,2 
+                ans.push_back(i); // 1,2
             }
-            if(i != n/i){
-                ans.push_back(n / i); // 6,3 
+            if (i != n / i)
+            {
+                ans.push_back(n / i); // 6,3
             }
         }
         return ans;
+    }
+
+    bool isPrime(int n)
+    {
+        if (n <= 1)
+            return false;
+        for (int i = 2; i * i <= n; i++)
+        {
+            if (n % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 };
 
@@ -129,18 +145,20 @@ int main()
     mathematics m;
     int num = 153;
     int n1 = 15, n2 = 18;
+    cout << boolalpha;
     // count digits in number
     cout << "Total number of digits in " << num << " is : " << m.countDigits(num) << "\n";
     cout << "The reverse of Number " << num << " is : " << m.reverseNumber(num) << "\n";
-    cout << "Check the palindrom for " << num << " is : " << boolalpha << m.isPalindrome(12321) << "\n";
+    cout << "Check the palindrom for " << num << " is : " << m.isPalindrome(12321) << "\n";
     cout << "GCD of  " << n1 << " and " << n2 << " is : " << m.GCD(n1, n2) << "\n";
     // lcm of a,b  = a*b/gcd of a,b
     cout << "LCM of  " << n1 << " and " << n2 << " is : " << (n1 * n2) / m.GCD(n1, n2) << "\n";
-    cout << "Check number : " << num << " is Armstrong : " << boolalpha << m.isArmstrong(num) << "\n";
+    cout << "Check number : " << num << " is Armstrong : " << m.isArmstrong(num) << "\n";
     vector<int> res = m.divisors(6);
     cout << "divisors of 6 : ";
     for (int n : res)
-    {
         cout << n << " ";
-    }
+    cout << "\n";
+    int n = 47;
+    cout << "Chcek Prime" << n << " : " << m.isPrime(n) << "\n";
 }
