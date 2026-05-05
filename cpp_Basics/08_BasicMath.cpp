@@ -51,16 +51,35 @@ public:
     // GCD calculation
     int GCD(int n1, int n2)
     {
-        int min = n1 < n2 ? n1 : n2;
-        int gcd = 1;
-        for (int i = 2; i < min; ++i)
+        // Normal approach
+        // int min = n1 < n2 ? n1 : n2;
+        // int gcd = 1;
+        // for (int i = 2; i < min; ++i)
+        // {
+        //     if ((n1 % i == 0) && (n2 % i == 0))
+        //     {
+        //         gcd = i;
+        //     }
+        // }
+        // return gcd;
+
+        // Optimized approach
+        while (n1 > 0 && n2 > 0)
         {
-            if ((n1 % i == 0) && (n2 % i == 0))
+            if (n1 > n2)
             {
-                gcd = i;
+                n1 = n1 % n2;
+            }
+            else
+            {
+                n2 = n2 % n1;
             }
         }
-        return gcd;
+        if (n1 == 0)
+        {
+            return n2;
+        }
+        return n1;
     }
 };
 
@@ -74,4 +93,6 @@ int main()
     cout << "The reverse of Number " << num << " is : " << m.reverseNumber(num) << "\n";
     cout << "Check the palindrom for " << num << " is : " << m.isPalindrome(12321) << "\n";
     cout << "GCD of  " << n1 << " and " << n2 << " is : " << m.GCD(n1, n2) << "\n";
+    // lcm of a,b  = a*b/gcd of a,b
+    cout << "LCM of  " << n1 << " and " << n2 << " is : " << (n1 * n2) / m.GCD(n1, n2) << "\n";
 }
