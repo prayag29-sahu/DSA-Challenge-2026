@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <vector>
 using namespace std;
 
 class mathematics
@@ -105,6 +106,22 @@ public:
         }
         return false;
     }
+
+    vector<int> divisors(int n) // 6
+    {
+        vector<int> ans;
+        for (int i = 1; i*i < n + 1; ++i) // i=1 , 2 
+        {
+            if (n % i == 0)
+            {
+                ans.push_back(i); // 1,2 
+            }
+            if(i != n/i){
+                ans.push_back(n / i); // 6,3 
+            }
+        }
+        return ans;
+    }
 };
 
 int main()
@@ -120,4 +137,10 @@ int main()
     // lcm of a,b  = a*b/gcd of a,b
     cout << "LCM of  " << n1 << " and " << n2 << " is : " << (n1 * n2) / m.GCD(n1, n2) << "\n";
     cout << "Check number : " << num << " is Armstrong : " << boolalpha << m.isArmstrong(num) << "\n";
+    vector<int> res = m.divisors(6);
+    cout << "divisors of 6 : ";
+    for (int n : res)
+    {
+        cout << n << " ";
+    }
 }
