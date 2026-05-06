@@ -40,6 +40,15 @@ public:
 
         return n;
     }
+    // factorial of first n number
+    int factorial_of_N_numbers(int n)
+    {
+        if (n == 1)
+            return 1;
+        n *= factorial_of_N_numbers(n - 1);
+
+        return n;
+    }
 };
 int main()
 {
@@ -63,7 +72,10 @@ int main()
     cout << "\nPrint 1 to n digits using Backtracking : ";
     r.print_N_Numbers2(5);
 
-    // print 1 to n sum using recursion backtraking
+    // print 1 to n sum using recursion
     int sum = r.sum_of_N_numbers(10);
-    cout << "\nPrint 1 to n sum digits using Backtracking : " << sum;
+    cout << "\nPrint 1 to n sum digits : " << sum;
+    // print fectorial of n using recursion 
+    int fact = r.factorial_of_N_numbers(5);
+    cout << "\nPrint 1 to n sum digits : " << fact;
 }
