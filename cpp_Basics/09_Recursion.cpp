@@ -40,6 +40,13 @@ public:
 
         return n;
     }
+
+    // without recursion but best approach direct use formula
+    int sum_of_N_numbers1(int n)
+    {
+        return n*(n+1)/2;
+    }
+
     // factorial of first n number
     int factorial_of_N_numbers(int n)
     {
@@ -75,6 +82,11 @@ int main()
     // print 1 to n sum using recursion
     int sum = r.sum_of_N_numbers(10);
     cout << "\nPrint 1 to n sum digits : " << sum;
+
+    // without recursion but best approach
+    int sum1 = r.sum_of_N_numbers1(10);
+    cout << "\nPrint 1 to n sum digits without recursion but best approach Direct use formual : " << sum1;
+
     // print fectorial of n using recursion 
     int fact = r.factorial_of_N_numbers(5);
     cout << "\nPrint 1 to n sum digits : " << fact;
