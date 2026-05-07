@@ -80,6 +80,14 @@ public:
 
         return isPalindrome(s, left + 1, right - 1);
     }
+
+    // print fibonacci series
+    int fibonacci(int n)
+    {
+        if (n <= 1)
+            return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
 };
 int main()
 {
@@ -127,6 +135,14 @@ int main()
     // check the string is palindrome or not using recursion
     string str = "abbba";
     cout << boolalpha << "\nstring " << str << " is palinerome ? : " << r.isPalindrome(str, 0, str.length() - 1);
+
+    // print fibonacci series
+    cout << endl;
+    int n = 10;
+    for (int i = 0; i < n; i++)
+    {
+        cout << r.fibonacci(i) << " ";
+    }
 
     return 0;
 }
