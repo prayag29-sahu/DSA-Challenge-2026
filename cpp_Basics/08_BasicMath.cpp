@@ -33,8 +33,8 @@ public:
         return reverse;
     }
 
-    // Palindrom check
-    bool isPalindrome(int n)
+    // Palindrom check for digits/numbers
+    bool isPalindromeForDigits(int n)
     {
         int palind = 0;
         int temp = n;
@@ -47,6 +47,26 @@ public:
             return true;
         else
             return false;
+    }
+    // Palindrom check for string
+    bool isPalindromeForString(string s, int i)
+    {
+        int left = i;
+        int right = s.length() - 1;
+        while (left < right)
+        {
+            if (!isalnum(s[left]))
+                ++left;
+            else if (!isalnum(s[right]))
+                --right;
+            else if(tolower(s[left])!=tolower(s[right])) {
+                return false;
+            } else {
+                ++left;
+                --right;
+            }   
+        }
+        return true;
     }
 
     // GCD calculation
@@ -144,12 +164,16 @@ int main()
 {
     mathematics m;
     int num = 153;
+    int n = 12321;
     int n1 = 15, n2 = 18;
+    string str1 = "hii my name is prayag";
+    string str = " A man, a plan, a canal : Panama ";
     cout << boolalpha;
     // count digits in number
     cout << "Total number of digits in " << num << " is : " << m.countDigits(num) << "\n";
     cout << "The reverse of Number " << num << " is : " << m.reverseNumber(num) << "\n";
-    cout << "Check the palindrom for " << num << " is : " << m.isPalindrome(12321) << "\n";
+    cout << "Check the palindrom for number" << n << " is : " << m.isPalindromeForDigits(n) << "\n";
+    cout << "Check the palindrom for string " << str << " is : " << m.isPalindromeForString(str, 0) << "\n";
     cout << "GCD of  " << n1 << " and " << n2 << " is : " << m.GCD(n1, n2) << "\n";
     // lcm of a,b  = a*b/gcd of a,b
     cout << "LCM of  " << n1 << " and " << n2 << " is : " << (n1 * n2) / m.GCD(n1, n2) << "\n";
@@ -159,6 +183,6 @@ int main()
     for (int n : res)
         cout << n << " ";
     cout << "\n";
-    int n = 47;
-    cout << "Chcek Prime" << n << " : " << m.isPrime(n) << "\n";
+    int number = 47;
+    cout << "Chcek Prime" << number << " : " << m.isPrime(number) << "\n";
 }
