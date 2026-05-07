@@ -66,6 +66,19 @@ public:
             return arr;
         swap(arr[left], arr[right]);
         reverse_Array(arr, left + 1, right - 1);
+
+        return arr;
+    }
+
+    // check string palinderom using recursion
+    bool isPalindrome(string &s, int left, int right)
+    {
+        if (left >= right)
+            return true;
+        if (s[left] != s[right])
+            return false;
+
+        return isPalindrome(s, left + 1, right - 1);
     }
 };
 int main()
@@ -110,6 +123,10 @@ int main()
     {
         cout << n << " ";
     }
+
+    // check the string is palindrome or not using recursion
+    string str = "abbba";
+    cout << boolalpha << "\nstring " << str << " is palinerome ? : " << r.isPalindrome(str, 0, str.length() - 1);
 
     return 0;
 }
