@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <math.h>
 using namespace std;
 
 class Recursion
@@ -44,7 +46,7 @@ public:
     // without recursion but best approach direct use formula
     int sum_of_N_numbers1(int n)
     {
-        return n*(n+1)/2;
+        return n * (n + 1) / 2;
     }
 
     // factorial of first n number
@@ -55,6 +57,15 @@ public:
         n *= factorial_of_N_numbers(n - 1);
 
         return n;
+    }
+
+    // reverse array using recursion
+    vector<int> reverse_Array(vector<int> &arr, int left, int right)
+    {
+        if (left >= right)
+            return arr;
+        swap(arr[left], arr[right]);
+        reverse_Array(arr, left + 1, right - 1);
     }
 };
 int main()
@@ -87,7 +98,18 @@ int main()
     int sum1 = r.sum_of_N_numbers1(10);
     cout << "\nPrint 1 to n sum digits without recursion but best approach Direct use formual : " << sum1;
 
-    // print fectorial of n using recursion 
+    // print fectorial of n using recursion
     int fact = r.factorial_of_N_numbers(5);
     cout << "\nPrint 1 to n sum digits : " << fact;
+
+    // reverse an array and print
+    vector<int> arr = {1, 2, 3, 4, 5};
+    r.reverse_Array(arr, 0, arr.size() - 1);
+    cout << "\nPrint the array in reverse order : ";
+    for (int n : arr)
+    {
+        cout << n << " ";
+    }
+
+    return 0;
 }
