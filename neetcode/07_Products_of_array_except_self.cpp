@@ -41,6 +41,25 @@ public:
         }
         return results;
     }
+
+// alternate optimized 
+    vector<int> ProductOfArrayExceptItself02(vector<int> &nums)
+    {
+        int leftProduct{1};
+        int rightProduct{1};
+        int n = nums.size();
+        vector<int> answer(n, 1);
+
+        for (int i{0}; i < n; i++)
+        {
+            answer[i] *= leftProduct;
+            answer[n - 1 - i] *= rightProduct;
+
+            leftProduct *= nums[i];
+            rightProduct *= nums[n - 1 - i];
+        }
+        return answer;
+    }
 };
 
 int main()
@@ -49,7 +68,7 @@ int main()
     vector<int> nums = {1, 2, 4, 6};
     vector<int> answer;
     // answer = P.ProductOfArrayExceptItself(nums);
-    answer = P.ProductOfArrayExceptItself01(nums);
+    answer = P.ProductOfArrayExceptItself02(nums);
     for (int i = 0; i < answer.size(); ++i)
         cout << answer[i] << " ";
 
