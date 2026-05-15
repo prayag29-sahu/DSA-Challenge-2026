@@ -100,6 +100,24 @@ public:
         divide(arr, 0, n);
         return arr;
     }
+
+// recursive bubble sort optimized because if the array sorted befor n time iterate or function call it return
+    void recursive_bubble_sort(vector<int> &nums, int n){
+        if(n==1)
+            return;
+
+        int isSwap = false;
+        for (int i = 0; i < n - 1;++i){
+            if(nums[i]>nums[i+1]){
+                swap(nums[i], nums[i + 1]);
+                isSwap = true;
+            }
+        }
+        if(!isSwap)
+            return;
+
+        recursive_bubble_sort(nums, n - 1);
+    }
 };
 
 int main()
@@ -115,9 +133,10 @@ int main()
     //     cout << arr[i] << " ";
     // }
 
-    
+
     vector<int> nums = {5, 2, 4, 1, 7, 5, 10, 3, 43, 12, 65, 0, 34, -1};
-    s.merge_sort(nums, nums.size() - 1);
+    // s.merge_sort(nums, nums.size() - 1);
+    s.recursive_bubble_sort(nums, nums.size());
     for (int x : nums)
         cout << x << " ";
 }
