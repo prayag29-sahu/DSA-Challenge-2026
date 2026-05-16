@@ -1,10 +1,13 @@
 #include <iostream>
+#include<algorithm>
 #include <vector>
 
 using namespace std;
 
 vector<int> merge_2list(vector<int> &list1, vector<int> &list2)
 {
+    sort(list1.begin(),list1.end());
+    sort(list2.begin(),list2.end());
     int list1_size = list1.size();
     int list2_size = list2.size();
     vector<int> list3;
@@ -38,8 +41,8 @@ vector<int> merge_2list(vector<int> &list1, vector<int> &list2)
 
 int main()
 {
-    vector<int> list1 = {1, 3, 5, 7, 9};
-    vector<int> list2 = {0, 2, 4, 6, 8};
+    vector<int> list1 = {1, 0,3, 5,9,2,56,23, 7, 9};
+    vector<int> list2 = {0, 34,2, 4,22, 6, 8};
     vector<int> results = merge_2list(list1, list2);
     for(int num : results){
         cout << num << " ";
