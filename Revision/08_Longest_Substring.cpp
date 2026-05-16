@@ -7,7 +7,8 @@ int longest_substring(string str)
     vector<int> s(128, -1);
     int left = 0;
     int maxSubstring = 0;
-    for (int right = 0; right < str.size(); ++right)
+    int n = str.size();
+    for (int right = 0; right<n; ++right)
     {
         if(s[str[right]]>=left){
             left = s[str[right]] + 1;
