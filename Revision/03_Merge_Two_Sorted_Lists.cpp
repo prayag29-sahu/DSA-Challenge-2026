@@ -89,9 +89,10 @@ int main()
     vector<int> list1 = {1, 0, 3, 5, 9, 2, 56, 23, 7, 9};
     vector<int> list2 = {0, 34, 2, 4, 22, 6, 8};
     vector<int> results = merge_2list(list1, list2);
+    cout << "Merge 2 list using vector array : ";
     for (int num : results)
     {
-        // cout << num << " ";
+        cout << num << " ";
     }
 
     Linklist *l1 = new Linklist(0); // dynamic creation 
@@ -104,7 +105,7 @@ int main()
     l2->next->next = new Linklist(12);
     l2->next->next->next = new Linklist(22);
     l2->next->next->next->next = new Linklist(41);
-
+    cout << "\nMerge 2 list using Linked list : ";
     printList(merge_2linkedlist(l1, l2));
 
     return 0;
