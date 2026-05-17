@@ -101,22 +101,39 @@ public:
         return arr;
     }
 
-// recursive bubble sort optimized because if the array sorted befor n time iterate or function call it return
-    void recursive_bubble_sort(vector<int> &nums, int n){
-        if(n==1)
+    // recursive bubble sort optimized because if the array sorted befor n time iterate or function call it return
+    void recursive_bubble_sort(vector<int> &nums, int n)
+    {
+        if (n == 1)
             return;
 
         int isSwap = false;
-        for (int i = 0; i < n - 1;++i){
-            if(nums[i]>nums[i+1]){
+        for (int i = 0; i < n - 1; ++i)
+        {
+            if (nums[i] > nums[i + 1])
+            {
                 swap(nums[i], nums[i + 1]);
                 isSwap = true;
             }
         }
-        if(!isSwap)
+        if (!isSwap)
             return;
 
         recursive_bubble_sort(nums, n - 1);
+    }
+
+    // recursive insertion sort
+    int recursive_Insertion_Sort(int arr[], int i, int n)
+    {
+        if (i == n)
+            return 0;
+        int j = i;
+        while (j > 0 && arr[j -1] > arr[j])
+        {
+            swap(arr[j], arr[j - 1]);
+            --j;
+        }
+        recursive_Insertion_Sort(arr, i + 1, n);
     }
 };
 
@@ -128,15 +145,15 @@ int main()
     // s.selection_sort(arr, n);
     // s.bubble_sort(arr, n);
     // s.insertion_sort(arr, n);
-    // for (int i = 0; i < n; ++i)
-    // {
-    //     cout << arr[i] << " ";
-    // }
+    s.recursive_Insertion_Sort(arr, 1, n);
+    for (int i = 0; i < n; ++i)
+    {
+        cout << arr[i] << " ";
+    }
 
-
-    vector<int> nums = {5, 2, 4, 1, 7, 5, 10, 3, 43, 12, 65, 0, 34, -1};
-    // s.merge_sort(nums, nums.size() - 1);
-    s.recursive_bubble_sort(nums, nums.size());
-    for (int x : nums)
-        cout << x << " ";
+    // vector<int> nums = {5, 2, 4, 1, 7, 5, 10, 3, 43, 12, 65, 0, 34, -1};
+    // // s.merge_sort(nums, nums.size() - 1);
+    // s.recursive_bubble_sort(nums, nums.size());
+    // for (int x : nums)
+    //     cout << x << " ";
 }
