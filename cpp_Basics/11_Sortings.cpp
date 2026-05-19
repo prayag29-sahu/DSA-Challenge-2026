@@ -128,7 +128,7 @@ public:
         if (i == n)
             return 0;
         int j = i;
-        while (j > 0 && arr[j -1] > arr[j])
+        while (j > 0 && arr[j - 1] > arr[j])
         {
             swap(arr[j], arr[j - 1]);
             --j;
@@ -136,6 +136,50 @@ public:
         recursive_Insertion_Sort(arr, i + 1, n);
     }
 };
+
+int partition(
+    vector<int> &arr, int low, int high){
+
+    int pivot = arr[high];
+
+    int i = low - 1;
+
+    for (int j = low; j < high; j++)
+    {
+
+        if (arr[j] <= pivot)
+        {
+
+            i++;
+
+            swap(arr[i], arr[j]);
+        }
+    }
+
+    swap(arr[i + 1], arr[high]);
+
+    return i + 1;
+}
+
+void quickSort(
+    vector<int> &arr, int low, int high)
+{
+    if (low >= high)
+        return;
+
+    int pivot = partition(arr, low, high);
+
+    quickSort(arr, low, pivot - 1);
+
+    quickSort(arr, pivot + 1, high);
+}
+
+vector<int> sortArray(vector<int> &nums)
+{
+    quickSort(nums, 0, nums.size() - 1);
+
+    return nums;
+}
 
 int main()
 {
@@ -148,7 +192,7 @@ int main()
     s.recursive_Insertion_Sort(arr, 1, n);
     for (int i = 0; i < n; ++i)
     {
-        cout << arr[i] << " ";
+        // cout << arr[i] << " ";
     }
 
     // vector<int> nums = {5, 2, 4, 1, 7, 5, 10, 3, 43, 12, 65, 0, 34, -1};
@@ -156,4 +200,13 @@ int main()
     // s.recursive_bubble_sort(nums, nums.size());
     // for (int x : nums)
     //     cout << x << " ";
+
+    vector<int> v = {4, 6, 2, 5, 7, 9, 1, 3};
+
+    sortArray(v);
+
+    for (int x : arr)
+        cout << x << " ";
+
+    return 0;
 }
