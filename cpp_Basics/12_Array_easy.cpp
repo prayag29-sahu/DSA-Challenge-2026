@@ -54,6 +54,37 @@ public:
         }
         cout << "First Largest Element of array : " << first << " and Second Largest Element of array : " << second;
     }
+
+    // find second smallest and second largest
+    void SecondSmallestSecondLargest(int num[], int n)
+    {
+        if(n<2){
+            cout << "-1 -1";
+        }
+        int smallest = num[0], SecSmallest = num[0], largest = num[0], Seclargest = num[0];
+        for (int i = 1; i < n; ++i)
+        {
+            if (num[i] < smallest)
+            {
+                SecSmallest = smallest;
+                smallest = num[i];
+            }
+            else if (num[i] < SecSmallest && num[i] > smallest)
+            {
+                SecSmallest = num[i];
+            }
+            if (largest < num[i])
+            {
+                Seclargest = largest;
+                largest = num[i];
+            }
+            else if (Seclargest < num[i] && num[i] < largest)
+            {
+                Seclargest = num[i];
+            }
+        }
+        cout << "\nSecond Largest Element in array : " << Seclargest << " and Second Smallest element in array : " << SecSmallest;
+    }
 };
 
 int main()
@@ -64,4 +95,5 @@ int main()
     cout << "Largest Element of array using iteration : " << a.largestElement(arr, size) << endl;
     cout << "Largest Element of array using 2 pointer : " << a.largestElement2Pointer(arr, size) << "\n";
     a.secondLargestElement(arr, size);
+    a.SecondSmallestSecondLargest(arr, size);
 }
