@@ -58,7 +58,8 @@ public:
     // find second smallest and second largest
     void SecondSmallestSecondLargest(int num[], int n)
     {
-        if(n<2){
+        if (n < 2)
+        {
             cout << "-1 -1";
         }
         int smallest = num[0], SecSmallest = num[0], largest = num[0], Seclargest = num[0];
@@ -85,6 +86,19 @@ public:
         }
         cout << "\nSecond Largest Element in array : " << Seclargest << " and Second Smallest element in array : " << SecSmallest;
     }
+
+    // check array is sorted or not
+    bool isSorted(int num[], int n)
+    {
+        for (int i = 1; i < n; ++i)
+        {
+            if (num[i] < num[i - 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 };
 
 int main()
@@ -96,4 +110,6 @@ int main()
     cout << "Largest Element of array using 2 pointer : " << a.largestElement2Pointer(arr, size) << "\n";
     a.secondLargestElement(arr, size);
     a.SecondSmallestSecondLargest(arr, size);
+    int sortedArr[] = {1, 2, 3, 4, 5, 6};
+    cout << "\nCheck the array is sorted or nor : " << boolalpha << a.isSorted(sortedArr, 6);
 }
