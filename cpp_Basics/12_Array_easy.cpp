@@ -99,6 +99,32 @@ public:
         }
         return true;
     }
+
+    bool isSortedAscDesc(int arr[], int n)
+    {
+        if (n <= 1)
+            return true;
+        int i = 1;
+        while (i < n && arr[i] == arr[i - 1])
+            i++;
+        if (i == n)
+            return true;
+        bool ascending = arr[i] > arr[i - 1];
+        for (; i < n; i++)
+        {
+            if (ascending)
+            {
+                if (arr[i] < arr[i - 1])
+                    return false;
+            }
+            else
+            {
+                if (arr[i] > arr[i - 1])
+                    return false;
+            }
+        }
+        return true;
+    }
 };
 
 int main()
@@ -111,5 +137,7 @@ int main()
     a.secondLargestElement(arr, size);
     a.SecondSmallestSecondLargest(arr, size);
     int sortedArr[] = {1, 2, 3, 4, 5, 6};
+    int sortedArray[] = {6, 5, 4, 3, 2, 1};
     cout << "\nCheck the array is sorted or nor : " << boolalpha << a.isSorted(sortedArr, 6);
+    cout << "\nCheck the array is sorted or nor : " << boolalpha << a.isSortedAscDesc(sortedArray, 6);
 }
