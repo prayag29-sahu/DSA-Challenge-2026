@@ -140,6 +140,17 @@ public:
         }
         return i + 1;
     }
+
+    // Left Rotate the Array by One
+    void leftRotation(int num[], int n)
+    {
+        int first = num[0];
+        for (int i = 1; i < n; ++i)
+        {
+            num[i - 1] = num[i];
+        }
+        num[n - 1] = first;
+    }
 };
 
 int main()
@@ -154,11 +165,18 @@ int main()
     int sortedArr[] = {1, 2, 3, 4, 5, 6};
     int sortedArray[] = {6, 5, 4, 3, 2, 1};
     cout << "\nCheck the array is sorted or nor : " << boolalpha << a.isSorted(sortedArr, 6);
-    cout << "\nCheck the array is sorted or nor : " << boolalpha << a.isSortedAscDesc(sortedArray, 6) << endl;
+    cout << "\nCheck the array is sorted or nor : " << boolalpha << a.isSortedAscDesc(sortedArray, 6);
     int duplicate[] = {1, 1, 2, 2, 2, 3, 3};
     int k = a.removeDuplicate(duplicate, 7);
+    cout << "\nRemove Duplicate From Array : ";
     for (int i = 0; i < k; ++i)
     {
         cout << duplicate[i] << " ";
+    }
+    cout << "\nLeft Rotate the Array by One : ";
+    a.leftRotation(sortedArr, 6);
+    for (int i : sortedArr)
+    {
+        cout << i << " ";
     }
 }
