@@ -22,10 +22,31 @@ vector<int> daily_temperature(vector<int> &temperatures)
     return res;
 }
 
+
+// Optimized Approach using stack
+vector<int> daily_temperatures(vector<int> &temperature)
+{
+    int n = temperature.size();
+    stack<int> st;
+    vector<int> res(n, 0);
+    for (int i = 0; i < n; ++i)
+    {
+        while (!st.empty() && temperature[i] > temperature[st.top()])
+        {
+            int j = st.top();
+            st.pop();
+            res[j] = i - j;
+        }
+        st.push(i);
+    }
+    return res;
+}
+
 int main()
 {
     vector<int> temperature = {30, 38, 30, 36, 35, 40, 28};
-    vector<int> results = daily_temperature(temperature);
+    // vector<int> results = daily_temperature(temperature);
+    vector<int> results = daily_temperatures(temperature);
     for (int i : results)
     {
         cout << i << " ";
