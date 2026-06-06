@@ -28,3 +28,12 @@ int main()
     vector<int> nums = {2, 20, 4, 10, 3, 4, 5};
     cout <<"Longest Consecutive is : " << LongestConsecutive(nums) << endl;
 }
+
+// TC: O(n)
+// SC: O(n)
+//
+// Store all elements in a hash set for O(1) lookup.
+// Only start expanding a sequence if the current number
+// is the beginning of that sequence (num-1 does not exist).
+// This prevents repeated work and ensures every element
+// is visited at most once.
