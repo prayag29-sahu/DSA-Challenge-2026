@@ -34,7 +34,7 @@ public:
             int sum = nums[left] + nums[right];
             if (sum == target)
                 return {left + 1, right + 1};
-            if (sum > target)
+            else if (sum > target)
                 --right;
             else
                 ++left;
@@ -51,11 +51,19 @@ public:
         {
             int sum = nums[left] + nums[right];
             if (sum == target)
+            {
                 ans.push_back({left + 1, right + 1});
-            if (sum > target)
-                --right;
+                left++;
+                right--;
+            }
+            else if (sum > target)
+            {
+                right--;
+            }
             else
-                ++left;
+            {
+                left++;
+            }
         }
         return ans;
     }
@@ -69,7 +77,7 @@ int main()
     int target = 12;
     // vector<int> results = s.twoSum(nums, target);
     vector<int> results = s.Two_sum(sorted, target);
-    // cout << results[0] << " " << results[1] << endl;
+    cout << results[0] << " " << results[1] << endl;
 
     vector<vector<int>> ans = s.Two_sum2(sorted, target);
     for(auto &at : ans){
@@ -78,3 +86,8 @@ int main()
 
     return 0;
 }
+
+// TC O(n)
+// SC (1)
+
+// Use Two Pointers ans store the results 
