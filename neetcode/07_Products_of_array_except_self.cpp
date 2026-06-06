@@ -45,18 +45,18 @@ public:
 // alternate optimized 
     vector<int> ProductOfArrayExceptItself02(vector<int> &nums)
     {
-        int leftProduct{1};
-        int rightProduct{1};
+        int prefix=1;
+        int suffix=1;
         int n = nums.size();
         vector<int> answer(n, 1);
 
-        for (int i{0}; i < n; i++)
+        for (int i=0; i < n; i++)
         {
-            answer[i] *= leftProduct;
-            answer[n - 1 - i] *= rightProduct;
+            answer[i] *= prefix;
+            answer[n - i - 1] *= suffix;
 
-            leftProduct *= nums[i];
-            rightProduct *= nums[n - 1 - i];
+            prefix *= nums[i];
+            suffix *= nums[n - i - 1];
         }
         return answer;
     }
@@ -68,9 +68,22 @@ int main()
     vector<int> nums = {1, 2, 4, 6};
     vector<int> answer;
     // answer = P.ProductOfArrayExceptItself(nums);
+    // answer = P.ProductOfArrayExceptItself01(nums);
     answer = P.ProductOfArrayExceptItself02(nums);
     for (int i = 0; i < answer.size(); ++i)
         cout << answer[i] << " ";
 
     return 0;
 }
+
+// TC: O(n)
+// SC: O(n)
+
+// First store the product of all elements to the left of each index.
+// Then traverse from right to left and multiply by the product
+// of all elements to the right.
+// Thus each answer[i] becomes:
+//
+// (product of left elements) × (product of right elements)
+
+// without using division.
