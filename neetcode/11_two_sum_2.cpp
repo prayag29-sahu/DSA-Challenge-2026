@@ -29,7 +29,7 @@ public:
     {
         int left = 0;
         int right = nums.size() - 1;
-        while (left <= right)
+        while (left < right)
         {
             int sum = nums[left] + nums[right];
             if (sum == target)
@@ -41,6 +41,24 @@ public:
         }
         return {};
     }
+    // for multiple pair
+    vector<vector<int>> Two_sum2(vector<int> &nums, int target)
+    {
+        int left = 0;
+        int right = nums.size() - 1;
+        vector<vector<int>> ans;
+        while (left < right)
+        {
+            int sum = nums[left] + nums[right];
+            if (sum == target)
+                ans.push_back({left + 1, right + 1});
+            if (sum > target)
+                --right;
+            else
+                ++left;
+        }
+        return ans;
+    }
 };
 
 int main()
@@ -51,7 +69,12 @@ int main()
     int target = 12;
     // vector<int> results = s.twoSum(nums, target);
     vector<int> results = s.Two_sum(sorted, target);
-    cout << results[0] << " " << results[1] << endl;
+    // cout << results[0] << " " << results[1] << endl;
+
+    vector<vector<int>> ans = s.Two_sum2(sorted, target);
+    for(auto &at : ans){
+        cout << "[" << at[0] << "," << at[1] << "]";
+    }
 
     return 0;
 }
