@@ -77,3 +77,5 @@ int main()
 
     return 0;
 }
+
+// To group anagrams, we need a unique representation for words containing the same character frequencies. Instead of sorting each word, which costs O(k log k), we build a frequency count of 26 lowercase letters and convert it into a unique key. All anagrams generate the same frequency key and are stored together in a hash map. This reduces the overall complexity from O(n × k log k) to O(n × k).
