@@ -64,4 +64,12 @@ int main()
         cout << "]" << endl;
     }
 }
+| Problem | Time | Space |
+    | -- -- -- -- -- --| -- --| -- --|
+    | Two Sum(HashMap) | O(n) | O(n) |
+    | Two Sum II | O(n) | O(1) |
+    | Three Sum | O(n²) | O(1) |
+    | Four Sum | O(n³) | O(1) |
+    | K - Sum | O(n ^ (k - 1)) | O(1) |
 
+    // After sorting, we fix two elements (i and j) and solve the remaining problem using the two-pointer technique. The outer two loops contribute O(n²), and the two-pointer scan contributes O(n), giving an overall time complexity of O(n³). Auxiliary space is O(1), excluding the output array.
