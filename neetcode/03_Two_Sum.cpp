@@ -45,7 +45,7 @@ public:
 int main()
 {
     Two_Sum ts;
-    vector<int> v = {3, 4, 5, 6, 2};
+    vector<int> v = {3, 4, 5, 3, 4, 2};
     int target = 7;
     vector<int> res = ts.TwoSum(v, target);
     cout << "Print index : [" << res[0] << "," << res[1] << "]";
