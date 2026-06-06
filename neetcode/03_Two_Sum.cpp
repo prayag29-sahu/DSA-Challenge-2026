@@ -29,6 +29,13 @@ int main()
     vector<int> v = {3, 4, 5, 6};
     int target = 7;
     vector<int> res = ts.TwoSum(v, target);
-    cout << "[" << res[0] << "," << res[1] << "]";
+    cout << "Print index : [" << res[0] << "," << res[1] << "]";
+    cout << "\nPrint Values : [" << v[res[0]] << "," << v[res[1]] << "]";
     return 0;
 }
+// TC: O(n)
+// SC: O(n)
+// We traverse the array once while storing previously
+// seen numbers in a hash map.
+// For each element, we compute its complement
+// and check if it already exists in O(1) average time.
