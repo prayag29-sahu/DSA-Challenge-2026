@@ -16,7 +16,7 @@ vector<vector<int>> FourSum(vector<int> &nums)
         }
         for (int j = i + 1; j < n; ++j)
         {
-            if (j > 0 && nums[j] == nums[j - 1])
+            if (j > i + 1 && nums[j] == nums[j - 1])
             {
                 continue;
             }
@@ -64,3 +64,4 @@ int main()
         cout << "]" << endl;
     }
 }
+
