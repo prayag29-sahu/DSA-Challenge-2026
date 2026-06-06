@@ -9,7 +9,7 @@ class Encoding_Decoding
     string encoding(vector<string> &str)
     {
         string res = "";
-        for (string s : str)
+        for (string& s : str)
         {
             res += to_string(s.size()) + "#" + s;
         }
@@ -40,6 +40,7 @@ int main(){
     Encoding_Decoding ed;
     vector<string> strs = {"Prayag", "Sahu"};
     string encode = ed.encoding(strs);
+    // cout << encode;
     vector<string> decode = ed.decoding(encode);
     cout << "[";
     for(string ans : decode){
