@@ -27,3 +27,13 @@ int main(){
     string str = "Madam, in Eden, I'm Adam";
     cout << boolalpha << isPalindrome(str);
 }
+
+// TC: O(n)
+// SC: O(1)
+
+// Two pointers start from both ends.
+// Non-alphanumeric characters are skipped.
+// Characters are compared case-insensitively
+// using tolower().
+// If any mismatch occurs, return false;
+// otherwise the string is a valid palindrome.
