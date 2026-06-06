@@ -54,6 +54,8 @@ int main()
         {
             cout << n << ", ";
         }
-        cout <<"]"<< endl;
+        cout <<"],"<< endl;
     }
 }
+
+// First sort the array. Then fix one element at index i and use two pointers on the remaining sorted portion to find pairs whose sum equals -nums[i]. Since the array is sorted, if the current sum is too small we move the left pointer, and if it's too large we move the right pointer. Duplicate values are skipped for i, left, and right to ensure only unique triplets are returned. The overall complexity is O(n²) time and O(1) extra space.
