@@ -48,3 +48,13 @@ int main(){
     }
     cout << "]";
 }
+
+// Encode TC: O(n)
+// Encode SC: O(n)
+
+// Decode TC: O(n)
+// Decode SC: O(n)
+
+// Each character is processed once.
+// Length-prefix encoding allows unambiguous decoding
+// even when strings contain special characters.
