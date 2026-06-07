@@ -31,6 +31,7 @@ public:
         }
         return mx - m;
     }
+
     // Optimized approach
     int maxProfit1(vector<int> &prices)
     {
@@ -43,6 +44,17 @@ public:
         }
         return maxProfit;
     }
+
+    int leastProfit(vector<int> &prices)
+    {
+        int maxPrice = prices[0]; 
+        int minProfit = INT_MAX;
+        for (int i = 1; i < prices.size();++i){
+            maxPrice = max(maxPrice, prices[i]); 
+            minProfit = min(minProfit, maxPrice - prices[i]); 
+        }
+            return minProfit;
+    }
 };
 
 int main()
@@ -51,7 +63,8 @@ int main()
     vector<int> prices = {10, 1, 5, 6, 7, 1};
     // cout << s.maxProfit(prices);
     //Optimized
-    cout << s.maxProfit1(prices);
+    // cout << s.maxProfit1(prices);
+    cout << s.leastProfit(prices);
 }
 
 // TC = O(n)
