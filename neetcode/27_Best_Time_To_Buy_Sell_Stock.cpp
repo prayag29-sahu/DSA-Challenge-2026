@@ -31,12 +31,25 @@ public:
         }
         return mx - m;
     }
-
+    // Optimized approach
+    int maxProfit1(vector<int> &prices)
+    {
+        int minPrice = prices[0];
+        int maxProfit = 0;
+        for (int price : prices)
+        {
+            minPrice = min(minPrice, price);
+            maxProfit = max(maxProfit, price - minPrice);
+        }
+        return maxProfit;
+    }
 };
 
 int main()
 {
     Solution s;
     vector<int> prices = {10, 1, 5, 6, 7, 1};
-    cout << s.maxProfit(prices);
+    // cout << s.maxProfit(prices);
+    //Optimized
+    cout << s.maxProfit1(prices);
 }
