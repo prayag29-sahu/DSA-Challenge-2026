@@ -53,3 +53,6 @@ int main()
     //Optimized
     cout << s.maxProfit1(prices);
 }
+
+// TC = O(n)
+// SC = O(1)
