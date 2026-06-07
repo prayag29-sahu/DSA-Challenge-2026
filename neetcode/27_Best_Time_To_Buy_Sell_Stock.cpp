@@ -45,15 +45,18 @@ public:
         return maxProfit;
     }
 
-    int leastProfit(vector<int> &prices)
+    int maxLoss(vector<int> &prices)
     {
-        int maxPrice = prices[0]; 
-        int minProfit = INT_MAX;
-        for (int i = 1; i < prices.size();++i){
-            maxPrice = max(maxPrice, prices[i]); 
-            minProfit = min(minProfit, maxPrice - prices[i]); 
+        int maxPrice = prices[0];
+        int maxLoss = 0;
+
+        for (int i = 1; i < prices.size(); i++)
+        {
+            maxPrice = max(maxPrice, prices[i]);
+            maxLoss = max(maxLoss, maxPrice - prices[i]);
         }
-            return minProfit;
+
+        return maxLoss;
     }
 };
 
@@ -64,7 +67,7 @@ int main()
     // cout << s.maxProfit(prices);
     //Optimized
     // cout << s.maxProfit1(prices);
-    cout << s.leastProfit(prices);
+    cout << s.maxLoss(prices);
 }
 
 // TC = O(n)
